@@ -1,0 +1,5 @@
+#for root node modules
+/node_modules
+
+# ignore every node modules in subdirectory..for nest 
+**/node_modules 
