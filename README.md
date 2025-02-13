@@ -32,7 +32,7 @@
   }
   ```
 
-6. **Update `package.json` file**
+5. **Update `package.json` file**
    ```json
    {
      "private": true,
@@ -48,7 +48,7 @@
    }
    ```
 
-7. **Add workspaces in `package.json`**
+6. **Add workspaces in `package.json`**
    ```json
    "workspaces": [
      "apps/*"
@@ -56,10 +56,10 @@
    ```
    Now, create a folder named `apps`.
 
-8. **Install Next.js inside `apps` folder**
-9. **Install NestJS inside `apps` folder**
+7. **Install Next.js inside `apps` folder**
+8. **Install NestJS inside `apps` folder**
 
-10. **Ensure `package.json` of Next.js and NestJS apps includes `dev` script**
+9. **Ensure `package.json` of Next.js and NestJS apps includes `dev` script**
    Each app should have a `package.json` with the `dev` script because `turbo run dev` will trigger it.
    ```json
    "scripts": {
