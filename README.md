@@ -1,34 +1,69 @@
-# how to initiate turbo project from blank repo
-1. create a folder
-2. npm init -y , it will create packagae.json file
-3. npm install turbo --save-dev , install turbo accroding to turborepo
-4. turbo.json , add this file
-5. update package json `{
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint"
-  },
-  "devDependencies": {
-    "turbo": "latest"
-  },
-  "packageManager": "npm@10.0.0"
+# How to Initiate Turbo Project from Blank Repo
 
-}`
-6. add worspace in packagejson
-#"workspaces": [
-    "apps/*",
-  ],
-  now create a folder name apps
-7.install next under apps
-8.install nest under apps
-9.now go to next package.json  and check dev is present,becasue of  "turbo run dev",it will only trigger dev .
-same goes for nest project
+1. **Create a folder**
+2. **Initialize npm**
+   ```bash
+   npm init -y
+   ```
+   This will create a `package.json` file.
 
+3. **Install Turbo as a dev dependency**
+   ```bash
+   npm install turbo --save-dev
+   ```
 
-  "scripts": {
+4. **Create `turbo.json` file and update it**
+   ```json
+   {
+    "$schema": "https://turbo.build/schema.json",
+    "tasks": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["dist/**"]
+      },
+       "lint" : {
 
-    "dev": "necessary command",
+       },
+      "dev": {
+    
+        "cache": false
+      }
+    }
+  }
+  ```
 
-  },
+6. **Update `package.json` file**
+   ```json
+   {
+     "private": true,
+     "scripts": {
+       "build": "turbo run build",
+       "dev": "turbo run dev",
+       "lint": "turbo run lint"
+     },
+     "devDependencies": {
+       "turbo": "latest"
+     },
+     "packageManager": "npm@10.0.0"
+   }
+   ```
+
+7. **Add workspaces in `package.json`**
+   ```json
+   "workspaces": [
+     "apps/*"
+   ]
+   ```
+   Now, create a folder named `apps`.
+
+8. **Install Next.js inside `apps` folder**
+9. **Install NestJS inside `apps` folder**
+
+10. **Ensure `package.json` of Next.js and NestJS apps includes `dev` script**
+   Each app should have a `package.json` with the `dev` script because `turbo run dev` will trigger it.
+   ```json
+   "scripts": {
+     "dev": "necessary command"
+   }
+   ```
+
